@@ -1,0 +1,30 @@
+﻿<Application x:Class="Cyvasse.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Cyvasse"
+             xmlns:utility="clr-namespace:Cyvasse.Utility"
+             xmlns:viewmodel="clr-namespace:Cyvasse.ViewModel"
+             xmlns:view="clr-namespace:Cyvasse.View"
+             xmlns:model="clr-namespace:Cyvasse.Model">
+
+    <Application.Resources>
+
+        <!-- Datatemplates to define what view should be shown when a certain viewmodel is the datacontext. When new viewmodels are made, remember to add them here -->
+        <DataTemplate DataType="{x:Type viewmodel:SoloGameViewModel}">
+            <view:SoloGameView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodel:MenuViewModel}">
+            <view:MenuView/>
+        </DataTemplate>
+
+        <!-- Datatemplate for showing a GamePiece on the gameboard -->
+        <DataTemplate DataType="{x:Type model:GamePiece}">
+            <Image Margin ="{Binding Path=Margin}" Source="{Binding Path=Image}" Width="40" Height="40"/>
+        </DataTemplate>
+
+        <!-- Converters -->
+        <utility:BoolToZIndexConverter x:Key="BoolToZIndex"/>
+
+    </Application.Resources>
+</Application>

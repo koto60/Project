@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Cyvasse.View.SoloGameView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Cyvasse.View"
+             xmlns:model="clr-namespace:Cyvasse.Model"
+             mc:Ignorable="d" 
+             d:DesignHeight="320" d:DesignWidth="320" DataContextChanged="UserControl_DataContextChanged">
+
+    <ItemsControl x:Name="playCanvas" ItemsSource="{Binding Board.GameBoard}" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="playCanvas_MouseLeftButtonUp" MouseLeftButtonDown="playCanvas_MouseLeftButtonDown" MouseMove="playCanvas_MouseMove">
+        <!-- Makes the panel in the ItemsControl a Canvas -->
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <Canvas x:Name="canny" Background="Red" Height="320" Width="320"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <!-- Makes it possible to set the ZIndex, so the dragging image is on top. This is because of how ItemsControl works -->
+        <ItemsControl.ItemContainerStyle>
+            <Style TargetType="ContentPresenter">
+                <Setter Property="Panel.ZIndex" Value="{Binding IsOnTop, Converter= {StaticResource BoolToZIndex}}"/>
+            </Style>
+        </ItemsControl.ItemContainerStyle>
+    </ItemsControl>
+</UserControl>
