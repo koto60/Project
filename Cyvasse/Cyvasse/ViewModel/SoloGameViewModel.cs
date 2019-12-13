@@ -123,14 +123,7 @@ namespace Cyvasse.ViewModel
 
 		private void movePiece(Object o)
 		{
-			Random rand = new Random();
-
-			int x = rand.Next(7)*40;
-			int y = rand.Next(7)*40;
-
-			CarryPiece.Position = new Point(x, y);
-
-			//CarryPiece.Position = (Point)o;
+			CarryPiece.Position = (Point)o;
 		}
 
 		private bool canExecuteMovePiece()

@@ -63,7 +63,7 @@ namespace Cyvasse.Model {
 
 		public GamePiece(Point p)
 		{
-			_image = new BitmapImage(new Uri(@"/Resources/profil.jpg", UriKind.Relative));
+			_image = new BitmapImage(new Uri(@"/Resources/apple.jpg", UriKind.Relative));
 			Position = p;
 		}
 	}

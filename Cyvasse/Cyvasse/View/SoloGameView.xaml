@@ -12,7 +12,7 @@
         <!-- Makes the panel in the ItemsControl a Canvas -->
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <Canvas x:Name="canny" Background="Red" Height="320" Width="320"/>
+                <Canvas Background="CornflowerBlue" Height="320" Width="320"/>
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <!-- Makes it possible to set the ZIndex, so the dragging image is on top. This is because of how ItemsControl works -->
